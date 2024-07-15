@@ -6,6 +6,8 @@ This small release based on Laravel, downloads Dutch address data from publicly 
 
 The original idea is not mine, i just wanted to build it in a PHP/Laravel way. The software made by Bert Hubert inspired me, and also helped interpret the data. The original version is available here: [https://github.com/berthubert/bagconv](https://github.com/berthubert/bagconv)
 
+The application is written in a mix of Dutch and English terms. It was all a bit confusing, since i think and write software in English but the source data was mostly in Dutch :-)
+
 ## Instructions
 
 You can either install the needed PHP packages yourself, or (when on Mac/Windows) use [Herd](https://herd.laravel.com/).
