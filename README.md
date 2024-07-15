@@ -1,8 +1,8 @@
 # Laravel BAG
 
-This small release based on Laravel downloads Dutch address data from publicly available BAG data. It downloads, extracts and parses the data to a database and makes it available via a simple API.
+This small release based on Laravel, downloads Dutch address data from publicly available BAG data. It downloads, extracts and parses the data to a database and makes it available via a simple API.
 
-The software made by Bert Hubert inspired me to make it, and also helped interpret the data. The original version is available here: [https://github.com/berthubert/bagconv](https://github.com/berthubert/bagconv)
+The original idea is not mine, i just wanted to build it in a PHP/Laravel way. The software made by Bert Hubert inspired me, and also helped interpret the data. The original version is available here: [https://github.com/berthubert/bagconv](https://github.com/berthubert/bagconv)
 
 ## Instructions
 
@@ -26,6 +26,31 @@ php artisan app:extract-bag-files
 php artisan app:process-bag-data
 ```
 
-The first step will download a large zip file, the second will unzip the needed files and the third step will import the data in the database. This will take quite some time... After this is done, you can lookup any address and postalcode in the Netherlands. The number is quite large, but it is worth it. Also, you don't need to run this many times. The data changes, but not in very high frequincy.
+The first step will download a large zip file, the second will unzip the needed files and the third step will import the data in the database. This will take quite some time... After this is done, you can lookup any address and postalcode in the Netherlands. The number is quite large, but it is worth it. Also, you don't need to run this many times. The data changes, but not in very high frequency.
 
-Hopefully this is a usefull package. I'm also working on a Rust version, but that's quite a learning process for now.
+Start the application with the following command:
+```
+php artisan serve
+```
+
+After all is done, you can do GET requests via the following routes:
+
+```
+http://localhost:8000/api/cities
+http://localhost:8000/api/cities/{identificatie}
+```
+
+Looking up a postalcode is done via these routes (POST)
+
+```
+http://localhost:8000/api/postalcode
+http://localhost:8000/api/residence
+```
+
+Both these routes take the following JSON data, the addition is optional but can be necessary in some cases:
+
+```
+{"postalcode":"1071DJ", "number": 10, "addition":""}
+```
+
+Hopefully this is a useful package to some. I'm also working on a Rust version, but that's quite a learning process for now.
