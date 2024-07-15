@@ -1,0 +1,95 @@
+{
+  "info": {
+    "name": "Laravel BAG",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Cities",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "url": "http://localhost:8000/api/cities"
+      }
+    },
+    {
+      "name": "City",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "url": "http://localhost:8000/api/cities/1012"
+      }
+    },
+    {
+      "name": "bruno",
+      "event": []
+    },
+    {
+      "name": "Postcode",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "url": "http://localhost:8000/api/postalcode",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"postalcode\":\"1071DJ\",\n  \"number\": 10,\n  \"addition\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Residence",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "url": "http://localhost:8000/api/residence",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"postalcode\":\"1071DJ\",\n  \"number\": 10,\n  \"addition\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "variable": []
+}
