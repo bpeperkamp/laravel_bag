@@ -27,5 +27,9 @@ jobs:
           cp .env.example .env
           php artisan key:generate
 
+      - name: Create empty test database
+        run: |
+          touch database/database_testing.sqlite
+
       - name: Run tests
         run: php artisan test
