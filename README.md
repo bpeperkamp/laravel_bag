@@ -1,3 +1,5 @@
+![Build status](https://github.com/bpeperkamp/laravel_bag/actions/workflows/ci.yml/badge.svg)
+
 # Laravel BAG
 
 This small release based on Laravel, downloads Dutch address data from publicly available BAG data. It downloads, extracts and parses the data to a database and makes it available via a simple API.
