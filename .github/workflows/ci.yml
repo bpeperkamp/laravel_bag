@@ -1,0 +1,25 @@
+name: Main deployment workflow
+run-name: Deploying to server by @${{ github.actor }}
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-process:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
+      - name: Generate key
+        run: php artisan key:generate
+
+      - name: Execute Unit tests (Pest)
+        run: php ./vendor/bin/pest --colors=always --parallel --processes=2
