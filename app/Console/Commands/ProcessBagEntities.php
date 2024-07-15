@@ -46,18 +46,18 @@ class ProcessBagEntities extends Command
         foreach ($directories as $directory) {
 
             // This will process cities (WPL - woonplaats)
-            // if (Str::of($directory)->endsWith(['9999WPL'])) {
-            //     $files = Storage::disk('local')->allFiles($directory);
+            if (Str::of($directory)->endsWith(['9999WPL'])) {
+                $files = Storage::disk('local')->allFiles($directory);
 
-            //     $progress = (object) progress(label: 'Processing city files', steps: count($files));
-            //     $progress->start();
-            //     foreach ($files as $key => $file) {
-            //         $xmldata = simplexml_load_file(Storage::disk('local')->path($file));
-            //         $this->processCities($xmldata);
-            //         $progress->advance();
-            //     }
-            //     $progress->finish();
-            // }
+                $progress = (object) progress(label: 'Processing city files', steps: count($files));
+                $progress->start();
+                foreach ($files as $key => $file) {
+                    $xmldata = simplexml_load_file(Storage::disk('local')->path($file));
+                    $this->processCities($xmldata);
+                    $progress->advance();
+                }
+                $progress->finish();
+            }
 
             // This will process numbers/streets (NUM - nummers)
             if (Str::of($directory)->endsWith(['9999NUM'])) {
@@ -73,47 +73,47 @@ class ProcessBagEntities extends Command
                 $progress->finish();
             }
 
-            // // This will process public spaces (OPR - openbare ruimte)
-            // if (Str::of($directory)->endsWith(['9999OPR'])) {
-            //     $files = Storage::disk('local')->allFiles($directory);
+            // This will process public spaces (OPR - openbare ruimte)
+            if (Str::of($directory)->endsWith(['9999OPR'])) {
+                $files = Storage::disk('local')->allFiles($directory);
 
-            //     $progress = (object) progress(label: 'Processing public space files', steps: count($files));
-            //     $progress->start();
-            //     foreach ($files as $key => $file) {
-            //         $xmldata = simplexml_load_file(Storage::disk('local')->path($file));
-            //         $this->processPublicSpaces($xmldata);
-            //         $progress->advance();
-            //     }
-            //     $progress->finish();
-            // }
+                $progress = (object) progress(label: 'Processing public space files', steps: count($files));
+                $progress->start();
+                foreach ($files as $key => $file) {
+                    $xmldata = simplexml_load_file(Storage::disk('local')->path($file));
+                    $this->processPublicSpaces($xmldata);
+                    $progress->advance();
+                }
+                $progress->finish();
+            }
 
-            // // This will process public residences (VBO - verblijfsobject)
-            // if (Str::of($directory)->endsWith(['9999VBO'])) {
-            //     $files = Storage::disk('local')->allFiles($directory);
+            // This will process public residences (VBO - verblijfsobject)
+            if (Str::of($directory)->endsWith(['9999VBO'])) {
+                $files = Storage::disk('local')->allFiles($directory);
 
-            //     $progress = (object) progress(label: 'Processing residences files', steps: count($files));
-            //     $progress->start();
-            //     foreach ($files as $key => $file) {
-            //         $xmldata = simplexml_load_file(Storage::disk('local')->path($file));
-            //         $this->processResidences($xmldata);
-            //         $progress->advance();
-            //     }
-            //     $progress->finish();
-            // }
+                $progress = (object) progress(label: 'Processing residences files', steps: count($files));
+                $progress->start();
+                foreach ($files as $key => $file) {
+                    $xmldata = simplexml_load_file(Storage::disk('local')->path($file));
+                    $this->processResidences($xmldata);
+                    $progress->advance();
+                }
+                $progress->finish();
+            }
 
-            // // This will process premises (PND - pand)
-            // if (Str::of($directory)->endsWith(['9999PND'])) {
-            //     $files = Storage::disk('local')->allFiles($directory);
+            // This will process premises (PND - pand)
+            if (Str::of($directory)->endsWith(['9999PND'])) {
+                $files = Storage::disk('local')->allFiles($directory);
 
-            //     $progress = (object) progress(label: 'Processing premise files', steps: count($files));
-            //     $progress->start();
-            //     foreach ($files as $key => $file) {
-            //         $xmldata = simplexml_load_file(Storage::disk('local')->path($file));
-            //         $this->processPremises($xmldata);
-            //         $progress->advance();
-            //     }
-            //     $progress->finish();
-            // }
+                $progress = (object) progress(label: 'Processing premise files', steps: count($files));
+                $progress->start();
+                foreach ($files as $key => $file) {
+                    $xmldata = simplexml_load_file(Storage::disk('local')->path($file));
+                    $this->processPremises($xmldata);
+                    $progress->advance();
+                }
+                $progress->finish();
+            }
 
         }
 
