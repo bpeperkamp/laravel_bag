@@ -1,5 +1,5 @@
 name: Main deployment workflow
-run-name: Deploying to server by @${{ github.actor }}
+run-name: Test workflow
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-process:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
