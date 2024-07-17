@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\City>
  */
-class CityFactory extends Factory
+class NumberFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,11 @@ class CityFactory extends Factory
     public function definition(): array
     {
         return [
-            'naam' => fake()->city(),
-            'identificatie' => fake()->unique()->randomNumber(8),
+            'postcode' => fake()->postcode(),
+            'identificatie' => fake()->numberBetween(1, 1000000000),
+            'nummer' => fake()->numberBetween(1, 1500),
+            'huisletter' => fake()->randomLetter(),
+            'ligtAan' => fake()->numberBetween(1, 5000)
         ];
     }
 }
